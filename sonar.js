@@ -51,9 +51,9 @@ function scanDatasetDir(path, month, allResults) {
 }
 
 function buildCSV(allResults) {
-    let csvData = writeLine('Mês', 'Classes', 'Methods', 'LOC', 'Classes Deus', 'Métodos Deus');
+    let csvData = writeLine('Mês', 'LOC', 'Classes', 'Methods', 'Classes Deus', 'Métodos Deus');
     allResults.forEach(dirResults => {
-        csvData += writeLine(dirResults.month, dirResults.classes, dirResults.methods, dirResults.lines, dirResults.godClasses, dirResults.godMethods);
+        csvData += writeLine(dirResults.month, dirResults.lines, dirResults.classes, dirResults.methods, dirResults.godClasses, dirResults.godMethods);
     })
     return csvData;
 }
@@ -125,7 +125,7 @@ function predictNextMonth(allResults) {
         month: 28
     }
 
-    return writeLine(nextMonth.month, nextMonth.classes, nextMonth.methods, nextMonth.lines, nextMonth.godClasses, nextMonth.godMethods);
+    return writeLine(nextMonth.month, nextMonth.lines, nextMonth.classes, nextMonth.methods, nextMonth.godClasses, nextMonth.godMethods);
 }
 
 function getAttrs(allResults) {
